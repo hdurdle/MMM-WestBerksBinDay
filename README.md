@@ -17,7 +17,7 @@ Clone this repository in your modules folder, and install dependencies:
 
 Go to the MagicMirror/config directory and edit the config.js file. Add the module to your modules array in your config.js.
 
-You'll need your uprn (Unique Property Reference Number) from the West Berks Council website. You can find this by search for your address here: http://ww2.westberks.gov.uk/internetmapping/AddressFinder_v2.aspx
+You'll need your uprn (Unique Property Reference Number) from the West Berks Council website. You can find this by searching for your address here: http://ww2.westberks.gov.uk/internetmapping/AddressFinder_v2.aspx
 
 You'll get a 12 digit number. Enter this in the config.js for your MagicMirror installation:
 
@@ -44,7 +44,7 @@ The module only has two possible configuration options:
   <tbody>
     <tr>
       <td><code>uprn</code></td>
-      <td>Unique Property Reference Number for your house.<br /><br /><strong>String</strong><br />Default: <code>undefined</code></td>
+      <td>Unique Property Reference Number for your house.<br /><br /><strong>Default: </strong><code>undefined</code></td>
     </tr>
     <tr>
       <td><code>dateFormat</code></td>
