@@ -1,5 +1,8 @@
 var NodeHelper = require("node_helper");
 var axios = require('axios');
+var moment = require('moment');
+const multisort = require('multisort');
+
 
 module.exports = NodeHelper.create({
 
@@ -46,17 +49,19 @@ module.exports = NodeHelper.create({
     var nextPickups = [];
 
     var refusePickup = {
-      pickupDate: this.schedule[1].ServiceHeaders.ServiceHeader.Next,
+      pickupDate: moment(this.schedule[1].ServiceHeaders.ServiceHeader.Next),
       pickupType: "RefuseBin"
     }
 
     var greenPickup = {
-      pickupDate: this.schedule[2].ServiceHeaders.ServiceHeader.Next,
+      pickupDate: moment(this.schedule[2].ServiceHeaders.ServiceHeader.Next),
       pickupType: "GreenBin"
     }
 
     nextPickups.push(refusePickup);
     nextPickups.push(greenPickup);
+
+    multisort(nextPickups, ['pickupDate']);
 
     this.sendSocketNotification('MMM-WESTBERKSBINDAY-RESPONSE' + payload.instanceId, nextPickups);
 
