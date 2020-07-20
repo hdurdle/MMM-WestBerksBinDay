@@ -3,7 +3,9 @@ Module.register('MMM-WestBerksBinDay', {
   // Default values
   defaults: {
     uprn: "",
-    dateFormat: "dddd D MMMM"
+    dateFormat: "dddd D MMMM",
+    refuseServiceName: "Domestic Refuse Collection",
+    recyclingServiceName: "Domestic Dry Recycling Collection"
   },
 
   // Define stylesheet
@@ -34,7 +36,9 @@ Module.register('MMM-WestBerksBinDay', {
     this.timer = null;
     this.sendSocketNotification("MMM-WESTBERKSBINDAY-GET", {
       instanceId: this.identifier,
-      uprn: this.config.uprn
+      uprn: this.config.uprn,
+      refuseServiceName: this.config.refuseServiceName,
+      recyclingServiceName: this.config.recyclingServiceName
     });
 
     // Set check times
